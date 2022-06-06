@@ -1,0 +1,30 @@
+.actions{
+  background: #ffffff;
+  &:after{
+    box-sizing: border-box;
+  }
+  &:before{
+    box-sizing: border-box;
+  }
+  border-radius: 0.625rem;
+
+}
+
+.create__button{
+  display: flex;
+  margin: 15px;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 40px;
+  text-align: center;
+  border-radius: 5px;
+  font-family: "Poppins", serif;
+  font-weight: 500;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.-bg {
+  background: #009EF7;
+}

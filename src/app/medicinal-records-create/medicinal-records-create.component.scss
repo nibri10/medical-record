@@ -1,0 +1,76 @@
+
+.card__medicinal__records{
+  background: #ffffff;
+  &:after{
+    box-sizing: border-box;
+  }
+  &:before{
+    box-sizing: border-box;
+  }
+  border-radius: 0.625rem;
+}
+
+.input__medicinal__records {
+  display: block;
+  width: 100%;
+  font-family: "Poppins", serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #5E6278;
+  background-color: #ffffff;
+  background-clip: padding-box;
+  border: 1px solid #E4E6EF;
+  appearance: none;
+  border-radius: 0.475rem;
+  box-shadow: inset 0 1px 2px rgb(0 0 0 / 8%);
+
+  &__input-solid{
+    background-color: #F5F8FA;
+    border-color: #F5F8FA;
+    color: #5E6278;
+  }
+}
+.label-input{
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  font-size: 1.075rem !important;
+  margin-top: 0.75rem !important;
+  color: #3F4254;
+}
+.flex-1{
+  flex: 1;
+}
+
+@media screen and (max-width: 800px){
+  .flex-1{
+    flex: 0 0 auto;
+  }
+}
+
+.button-submit{
+  display: inline-block;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #FFFFFF;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  border-radius: 0.475rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+}
+
+.button-submit-primary{
+  background-color: #0095E8 !important;
+}
+
+.button-submit:hover{
+  transition: color 0.2s ease, background-color 0.2s ease;
+}

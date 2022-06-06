@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {PostalCodeService} from "../services/postal-code.service";
-import Util from "../services/Util";
+import {PostalCodeService} from "../../services/postal-code.service";
+import Util from "../../services/Util";
 
 @Component({
   selector: 'app-register',

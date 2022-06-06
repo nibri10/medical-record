@@ -3,13 +3,19 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 import {ReactiveFormsModule} from "@angular/forms";
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { NgxMaskModule, IConfig } from 'ngx-mask'
+import { NgxMaskModule, IConfig } from 'ngx-mask';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { MedicinalRecordsListComponent } from './components/medicinal-records-list/medicinal-records-list.component';
+import { ActionsComponent } from './components/actions/actions.component';
+import { StatisticsComponent } from './components/statistics/statistics.component';
+import { MedicinalRecordsCreateComponent } from './medicinal-records-create/medicinal-records-create.component'
+import {BearToken} from "./services/BearToken";
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -19,7 +25,12 @@ const maskConfig: Partial<IConfig> = {
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    DashboardComponent,
+    MedicinalRecordsListComponent,
+    ActionsComponent,
+    StatisticsComponent,
+    MedicinalRecordsCreateComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +40,9 @@ const maskConfig: Partial<IConfig> = {
     BrowserAnimationsModule,
     NgxMaskModule.forRoot(maskConfig),
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS,useClass:BearToken, multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
