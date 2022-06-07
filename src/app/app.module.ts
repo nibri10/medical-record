@@ -9,7 +9,14 @@ import {ReactiveFormsModule} from "@angular/forms";
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { NgxMaskModule, IConfig } from 'ngx-mask'
+import { NgxMaskModule, IConfig } from 'ngx-mask';
+import { HeaderComponent } from './header/header.component';
+import { HomeComponent } from './home/home.component'
+
+import {LoggedLayoutComponent} from "./shared/logged-layout.component";
+import {NotLoggedLayoutComponent} from "./shared/not-logged-layout.component";
+import { FooterComponent } from './footer/footer.component';
+
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -18,8 +25,13 @@ const maskConfig: Partial<IConfig> = {
 @NgModule({
   declarations: [
     AppComponent,
+    HeaderComponent,
+    HomeComponent,
+    LoggedLayoutComponent,
+    NotLoggedLayoutComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,7 +41,7 @@ const maskConfig: Partial<IConfig> = {
     BrowserAnimationsModule,
     NgxMaskModule.forRoot(maskConfig),
   ],
-  providers: [],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
