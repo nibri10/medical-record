@@ -16,6 +16,7 @@ import { HomeComponent } from './home/home.component'
 import {LoggedLayoutComponent} from "./shared/logged-layout.component";
 import {NotLoggedLayoutComponent} from "./shared/not-logged-layout.component";
 import { FooterComponent } from './footer/footer.component';
+import { ListComponent } from './list/list.component';
 
 
 const maskConfig: Partial<IConfig> = {
@@ -32,6 +33,7 @@ const maskConfig: Partial<IConfig> = {
     LoginComponent,
     RegisterComponent,
     FooterComponent,
+    ListComponent,
   ],
   imports: [
     BrowserModule,

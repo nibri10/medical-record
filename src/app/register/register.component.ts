@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {PostalCodeService} from "../services/postal-code.service";
 import Util from "../services/Util";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-register',
@@ -23,6 +24,7 @@ export class RegisterComponent implements OnInit {
   addressCity : new FormControl("",[Validators.required]),
   })
 
+  valueReceived:any
   getErrorMessagePersonId(){
     if(this.userForm.get("personId")?.hasError('required')){
       return "field is required";
@@ -44,7 +46,8 @@ export class RegisterComponent implements OnInit {
 
   }
 
-  constructor(public postalCodeService: PostalCodeService) { }
+  constructor(private router : Router,public postalCodeService: PostalCodeService) {
+  }
 
   ngOnInit(): void {
   }

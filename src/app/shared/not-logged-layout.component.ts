@@ -7,7 +7,9 @@ import {Component, ViewChild} from '@angular/core';
       <app-header [singUp]="singUp" [singIn]="singIn" [title]="title"></app-header>
       <div class="d-flex flex-center flex-column flex-column-fluid p-10 pb-lg-20">
         <router-outlet></router-outlet>
+        <app-footer></app-footer>
       </div>
+
     </div>
   `,
   styles: []
