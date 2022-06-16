@@ -1,0 +1,267 @@
+<div class="row mt-5 ms-5 me-5 mb-5">
+  <div class="card card__medicinal__records">
+    <form [formGroup]="medicinalForm" novalidate (ngSubmit)="onSubmit()">
+      <div class="card-header">
+        <div class="row">
+          <div class="col">
+            <h3>Patient information</h3>
+          </div>
+          <div class="col" style="text-align:end">
+            <a href="#" class="btn btn-primary" [routerLink]="['/dashboard']">Back</a>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-auto flex-1">
+            <label class="label-input" for="name">Name:</label>
+            <input
+              formControlName="name"
+
+              class="form-control input__medicinal__records input__medicinal__records__input-solid"
+              id="name">
+            <div class="invalid-feedback" *ngIf="medicinalForm.get('name')?.invalid"
+                 [ngStyle]="{'display':medicinalForm.get('name')?.invalid && medicinalForm.get('name')?.touched ? 'block' : 'none'}">
+              {{getErrorName()}}
+            </div>
+          </div>
+          <div class="col-auto flex-1">
+            <label class="label-input" for="birthdate">birthdate</label>
+            <input type="date"
+                   formControlName="birthdate"
+                   class="form-control input__medicinal__records input__medicinal__records__input-solid"
+                   id="birthdate">
+            <div class="invalid-feedback" *ngIf="medicinalForm.get('birthdate')?.invalid"
+                 [ngStyle]="{'display':medicinalForm.get('birthdate')?.invalid && medicinalForm.get('birthdate')?.touched ? 'block' : 'none'}">
+              {{getErrorBirthdate()}}
+            </div>
+          </div>
+          <div class="col-auto flex-1">
+            <label class="label-input" for="placeBirth">Place Birth</label>
+            <input
+              formControlName="placeBirth"
+              class="form-control input__medicinal__records input__medicinal__records__input-solid" id="placeBirth">
+            <div class="invalid-feedback" *ngIf="medicinalForm.get('placeBirth')?.invalid"
+                 [ngStyle]="{'display':medicinalForm.get('placeBirth')?.invalid && medicinalForm.get('placeBirth')?.touched ? 'block' : 'none'}">
+              {{getErrorPlaceBirth()}}
+            </div>
+          </div>
+          <div class="col-auto flex-1">
+            <label class="label-input" for="age">Age</label>
+            <input formControlName="age"
+                   class="form-control input__medicinal__records input__medicinal__records__input-solid" id="age">
+            <div class="invalid-feedback" *ngIf="medicinalForm.get('age')?.invalid"
+                 [ngStyle]="{'display':medicinalForm.get('age')?.invalid && medicinalForm.get('age')?.touched ? 'block' : 'none'}">
+              {{getErrorAge()}}
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-auto flex-1">
+            <label class="label-input" for="civilStatus">Civil Status</label>
+
+            <select id="civilStatus" formControlName="civilStatus" class="form-select input__medicinal__records input__medicinal__records__input-solid">
+              <option [ngValue]="null" disabled>Select Civil Status</option>
+              <option *ngFor="let civilStatus of civilStatus" [ngValue]="civilStatus.id">{{civilStatus.name}}</option>
+            </select>
+            <div class="invalid-feedback" *ngIf="medicinalForm.get('civilStatus')?.invalid"
+                 [ngStyle]="{'display':medicinalForm.get('civilStatus')?.invalid && medicinalForm.get('civilStatus')?.touched ? 'block' : 'none'}">
+              {{getErrorCivilStatus()}}
+            </div>
+          </div>
+          <div class="col-auto flex-1">
+            <label class="label-input" for="gender">Gender</label>
+            <select id="gender" formControlName="gender" class="form-select input__medicinal__records input__medicinal__records__input-solid">
+              <option [ngValue]="null" disabled>Select Gender</option>
+              <option *ngFor="let _gender of gender" [ngValue]="_gender.id">{{_gender.name}}</option>
+            </select>
+            <div class="invalid-feedback" *ngIf="medicinalForm.get('gender')?.invalid"
+                 [ngStyle]="{'display':medicinalForm.get('gender')?.invalid && medicinalForm.get('gender')?.touched ? 'block' : 'none'}">
+              {{getErrorGender()}}
+            </div>
+          </div>
+          <div class="col-auto flex-1">
+            <label class="label-input" for="cns">CNS</label>
+            <input formControlName="cns"
+                   class="form-control input__medicinal__records input__medicinal__records__input-solid" id="cns">
+            <div class="invalid-feedback" *ngIf="medicinalForm.get('cns')?.invalid"
+                 [ngStyle]="{'display':medicinalForm.get('cns')?.invalid && medicinalForm.get('cns')?.touched ? 'block' : 'none'}">
+              {{getErrorCns()}}
+            </div>
+          </div>
+          <div class="col-auto flex-1">
+            <label class="label-input" for="provenance">Provenance patient</label>
+            <input formControlName="provenance"
+                   class="form-control input__medicinal__records input__medicinal__records__input-solid"
+                   id="provenance">
+            <div class="invalid-feedback" *ngIf="medicinalForm.get('cns')?.invalid"
+                 [ngStyle]="{'display':medicinalForm.get('cns')?.invalid && medicinalForm.get('cns')?.touched ? 'block' : 'none'}">
+              {{getErrorProvenance()}}
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-auto flex-1">
+            <label class="label-input" for="motherName">Mother name</label>
+            <input id="motherName"
+                   formControlName="motherName"
+                   class="form-control input__medicinal__records input__medicinal__records__input-solid">
+            <div class="invalid-feedback" *ngIf="medicinalForm.get('motherName')?.invalid"
+                 [ngStyle]="{'display':medicinalForm.get('motherName')?.invalid && medicinalForm.get('motherName')?.touched ? 'block' : 'none'}">
+              {{getErrorMotherName()}}
+            </div>
+          </div>
+
+          <div class="col-auto flex-1">
+            <label for="phone" class="label-input">Phone</label>
+            <input id="phone"
+                   formControlName="phone"
+                   placeholder="(11) 9 9999-9999"
+                   mask="(00) 0 0000-0000"
+                   class="form-control input__medicinal__records input__medicinal__records__input-solid">
+            <div class="invalid-feedback" *ngIf="medicinalForm.get('phone')?.invalid"
+                 [ngStyle]="{'display':medicinalForm.get('phone')?.invalid && medicinalForm.get('phone')?.touched ? 'block' : 'none'}">
+              {{getErrorMessagePhone()}}
+            </div>
+          </div>
+
+          <div class="col-auto flex-1">
+            <label for="phone-secondary" class="label-input">Secondary Phone</label>
+            <input id="phone-secondary"
+                   formControlName="phoneSecondary"
+                   placeholder="(11) 9 9999-9999"
+                   mask="(00) 0 0000-0000"
+                   class="form-control input__medicinal__records input__medicinal__records__input-solid">
+            <div class="invalid-feedback" *ngIf="medicinalForm.get('phoneSecondary')?.invalid"
+                 [ngStyle]="{'display':medicinalForm.get('phoneSecondary')?.invalid && medicinalForm.get('phoneSecondary')?.touched ? 'block' : 'none'}">
+              {{getErrorMessagePhoneSecondary()}}
+            </div>
+          </div>
+          <div class="col-auto flex-1">
+            <label for="professional" class="label-input">Professional</label>
+            <input id="professional"
+                   formControlName="professional"
+                   class="form-control input__medicinal__records input__medicinal__records__input-solid">
+            <div class="invalid-feedback" *ngIf="medicinalForm.get('professional')?.invalid"
+                 [ngStyle]="{'display':medicinalForm.get('professional')?.invalid && medicinalForm.get('professional')?.touched ? 'block' : 'none'}">
+              {{getErrorMessageProfessional()}}
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-auto flex-1">
+            <label for="postalCode" class="label-input">Postal Code</label>
+            <input id="postalCode" class="form-control input__medicinal__records input__medicinal__records__input-solid"
+                   (change)="getAddressInfo(medicinalForm.get('postalCode')?.value)"
+                   placeholder="00000-000"
+                   mask="00000-000"
+                   formControlName="postalCode"
+            >
+            <div class="invalid-feedback" *ngIf="medicinalForm.get('postalCode')?.invalid"
+                 [ngStyle]="{'display':medicinalForm.get('postalCode')?.invalid && medicinalForm.get('postalCode')?.touched ? 'block' : 'none'}">
+              {{getErrorMessageAddressState()}}
+            </div>
+          </div>
+          <div class="col-auto flex-1">
+            <label for="address" class="label-input">Address Name</label>
+            <input id="address"
+                   formControlName="addressName"
+                   class="form-control input__medicinal__records input__medicinal__records__input-solid">
+            <div class="invalid-feedback" *ngIf="medicinalForm.get('addressName')?.invalid"
+                 [ngStyle]="{'display':medicinalForm.get('addressName')?.invalid && medicinalForm.get('addressName')?.touched ? 'block' : 'none'}">
+              {{getErrorMessageAddressName()}}
+            </div>
+          </div>
+          <div class="col-auto flex-1">
+            <label for="addressNeighborhood" class="label-input">Address Neighborhood</label>
+            <input id="addressNeighborhood"
+                   formControlName="addressNeighborhood"
+                   class="form-control input__medicinal__records input__medicinal__records__input-solid">
+            <div class="invalid-feedback" *ngIf="medicinalForm.get('addressNeighborhood')?.invalid"
+                 [ngStyle]="{'display':medicinalForm.get('addressNeighborhood')?.invalid && medicinalForm.get('addressNeighborhood')?.touched ? 'block' : 'none'}">
+              {{getErrorMessageAddressNeighborhood()}}
+            </div>
+          </div>
+
+          <div class="col-auto flex-1">
+            <label for="addressNumber" class="label-input">Address Number</label>
+            <input id="addressNumber"
+                   formControlName="addressNumber"
+                   class="form-control input__medicinal__records input__medicinal__records__input-solid">
+            <div class="invalid-feedback" *ngIf="medicinalForm.get('addressNumber')?.invalid"
+                 [ngStyle]="{'display':medicinalForm.get('addressNumber')?.invalid && medicinalForm.get('addressNumber')?.touched ? 'block' : 'none'}">
+              {{getErrorMessageAddressState()}}
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-auto flex-1">
+            <label for="addressSupplement" class="label-input">Address Supplement</label>
+            <input id="addressSupplement"
+                   formControlName="addressSupplement"
+                   class="form-control input__medicinal__records input__medicinal__records__input-solid">
+            <div class="invalid-feedback" *ngIf="medicinalForm.get('addressSupplement')?.invalid"
+                 [ngStyle]="{'display':medicinalForm.get('addressSupplement')?.invalid && medicinalForm.get('addressSupplement')?.touched ? 'block' : 'none'}">
+              {{getErrorMessageAddressSupplement()}}
+            </div>
+          </div>
+          <div class="col-auto flex-1">
+            <label for="addressCity" class="label-input">Address City</label>
+            <input id="addressCity"
+                   formControlName="addressCity"
+                   class="form-control input__medicinal__records input__medicinal__records__input-solid">
+            <div class="invalid-feedback" *ngIf="medicinalForm.get('addressCity')?.invalid"
+                 [ngStyle]="{'display':medicinalForm.get('addressCity')?.invalid && medicinalForm.get('addressCity')?.touched ? 'block' : 'none'}">
+              {{getErrorMessageAddressCity()}}
+            </div>
+          </div>
+          <div class="col-auto flex-1">
+            <label for="addressState" class="label-input">Address State</label>
+            <input id="addressState"
+                   formControlName="addressState"
+                   class="form-control input__medicinal__records input__medicinal__records__input-solid">
+            <div class="invalid-feedback" *ngIf="medicinalForm.get('addressState')?.invalid"
+                 [ngStyle]="{'display':medicinalForm.get('addressState')?.invalid && medicinalForm.get('addressState')?.touched ? 'block' : 'none'}">
+              {{getErrorMessageAddressState()}}
+            </div>
+          </div>
+          <div class="col-auto flex-1">
+            <label for="addressCountry" class="label-input">Address Country</label>
+            <input id="addressCountry"
+                   formControlName="addressCountry"
+                   class="form-control input__medicinal__records input__medicinal__records__input-solid">
+            <div class="invalid-feedback" *ngIf="medicinalForm.get('addressCountry')?.invalid"
+                 [ngStyle]="{'display':medicinalForm.get('addressCountry')?.invalid && medicinalForm.get('addressCountry')?.touched ? 'block' : 'none'}">
+              {{getErrorMessageAddressCountry()}}
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-3 mb-3">
+          <div class="col-12">
+            <h3>Pathologies</h3>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-auto flex-1">
+            <label for="symptoms" class="label-input">symptoms</label>
+            <input id="symptoms" formControlName="symptoms"
+                   class="form-control input__medicinal__records input__medicinal__records__input-solid">
+          </div>
+          <div class="col-auto flex-1">
+            <label for="complaints" class="label-input">complaints</label>
+            <input id="complaints" formControlName="complaints"
+                   class="form-control input__medicinal__records input__medicinal__records__input-solid">
+          </div>
+        </div>
+        <div class="row mt-4 mb-4">
+          <div class="col-auto flex-1">
+            <button type="submit"  class="btn button-submit button-submit-primary" [disabled]="!medicinalForm.valid">Create</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+

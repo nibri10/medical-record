@@ -11,11 +11,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { MedicinalRecordsListComponent } from './components/medicinal-records-list/medicinal-records-list.component';
+import { MedicinalRecordsListComponent } from './components/medicinal-records/list/medicinal-records-list.component';
 import { ActionsComponent } from './components/actions/actions.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
-import { MedicinalRecordsCreateComponent } from './medicinal-records-create/medicinal-records-create.component'
+import { MedicinalRecordsCreateComponent } from './components/medicinal-records/create/medicinal-records-create.component'
 import {BearToken} from "./services/BearToken";
+import { ViewComponent } from './components/medicinal-records/view/view.component';
+import { EditComponent } from './components/medicinal-records/edit/edit.component';
+
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -30,7 +33,9 @@ const maskConfig: Partial<IConfig> = {
     MedicinalRecordsListComponent,
     ActionsComponent,
     StatisticsComponent,
-    MedicinalRecordsCreateComponent
+    MedicinalRecordsCreateComponent,
+    ViewComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,

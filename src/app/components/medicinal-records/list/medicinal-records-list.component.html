@@ -8,7 +8,6 @@
               <th scope="col">Paciente</th>
               <th scope="col">informações pessoais</th>
               <th scope="col">Sintomas</th>
-              <th scope="col">Dados de endereço</th>
               <th scope="col">Ações</th>
             </tr>
             </thead>
@@ -18,11 +17,11 @@
                 <p class="item-table-title">Nome: <span class="item-table-value">{{record.name}}</span></p>
                 <p class="item-table-title">Local de nascimento <span class="item-table-value">{{record.placeBirth}}</span></p>
                 <p class="item-table-title"> Data de Nascimento <span class="item-table-value">{{record.birthdate}}</span></p>
-                <p class="item-table-title">Sexo <span class="item-table-value">{{record.gender}}</span></p>
+                <p class="item-table-title">Sexo <span class="item-table-value">{{getGender(record)}}</span></p>
                 <p class="item-table-title">Idade <span class="item-table-value">{{record.age}}</span></p>
               </th>
               <td>
-                <p class="item-table-title">Status civil <span class="item-table-value">{{record.civilStatus}}</span></p>
+                <p class="item-table-title">Status civil <span class="item-table-value">{{getCivilStatus(record)}}</span></p>
                 <p class="item-table-title">Profissão <span class="item-table-value">{{record.professional}}</span></p>
                 <p class="item-table-title">Nome da mãe: <span class="item-table-value">{{record.motherName}}</span></p>
                 <p class="item-table-title">Telefone <span class="item-table-value">{{record.phone}}</span></p>
@@ -35,20 +34,15 @@
                 <p class="item-table-title">Complicações <span class="item-table-value">{{record.complaints}}</span></p>
               </td>
               <td>
-                <p class="item-table-title"> Rua <span class="item-table-value">{{record.addressName}}</span></p>
-                <p class="item-table-title">Bairro <span class="item-table-value">{{record.addressNeighborhood}}</span></p>
-                <p class="item-table-title">Número <span class="item-table-value">{{record.addressNumber}}</span></p>
-                <p class="item-table-title">Complemento: <span class="item-table-value">{{record.addressSupplement}}</span></p>
-                <p class="item-table-title">Cidade <span class="item-table-value">{{record.addressCity}}</span></p>
-                <p class="item-table-title">Estado <span class="item-table-value">{{record.addressState}}</span></p>
-              </td>
-              <td>
                 <div class="row">
                   <div class="col">
-                    <a class="create__button -bg">Editar</a>
+                    <a   href="#" [routerLink]="['/medicinal-record/', record.id, 'view']" class="btn btn-info">Ver</a>
                   </div>
                   <div class="col">
-                    <a class="create__button -bg">Remover</a>
+                    <a  class="btn btn-primary"  href="#" [routerLink]="['/medicinal-record/', record.id, 'edit']">Editar</a>
+                  </div>
+                  <div class="col">
+                    <button type="button" (click)="delete(record)" class="btn btn-danger"  href="#" >Remover</button>
                   </div>
                 </div>
               </td>

@@ -6,8 +6,8 @@ export class MedicinalRecord{
   birthdate ?:string;
   placeBirth?:string;
   age?:string;
-  civilStatus?:string;
-  gender?:string;
+  civilStatus?:number;
+  gender?:number;
   cns?:string;
   provenance?:string;
   motherName?:string;

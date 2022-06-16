@@ -1,15 +1,20 @@
 import { Component, OnInit } from '@angular/core';
+import {MedicinalRecord} from "../../../models/MedicinalRecord";
+import {MedicinalRecordService} from "../../../services/MedicinalRecordService";
+import {ActivatedRoute, Router} from "@angular/router";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import Util from "../services/Util";
-import {PostalCodeService} from "../services/postal-code.service";
+import Util from "../../../services/Util";
+import {PostalCodeService} from "../../../services/postal-code.service";
 
 @Component({
-  selector: 'app-medicinal-records-create',
-  templateUrl: './medicinal-records-create.component.html',
-  styleUrls: ['./medicinal-records-create.component.scss']
+  selector: 'app-edit',
+  templateUrl: './edit.component.html',
+  styleUrls: ['./edit.component.scss']
 })
-export class MedicinalRecordsCreateComponent implements OnInit {
+export class EditComponent implements OnInit {
 
+  id: number | undefined;
+  record: MedicinalRecord | undefined;
   medicinalForm = new FormGroup({
     name:new FormControl("",[Validators.required]),
     birthdate: new FormControl("",[Validators.required]),
@@ -35,9 +40,36 @@ export class MedicinalRecordsCreateComponent implements OnInit {
     complaints: new FormControl("",[Validators.required])
   })
 
-  constructor(public postalCodeService: PostalCodeService) { }
+  constructor(private medicinalRecordService : MedicinalRecordService,private route: ActivatedRoute,private router: Router, public postalCodeService: PostalCodeService,) { }
 
   ngOnInit(): void {
+    this.id = this.route.snapshot.params['Id'];
+    if (this.id) {
+      this.medicinalRecordService.find(this.id).subscribe((data: MedicinalRecord) => {
+        this.medicinalForm.get("name")?.setValue(data.name);
+        this.medicinalForm.get("birthdate")?.setValue(data.birthdate);
+        this.medicinalForm.get("placeBirth")?.setValue(data.placeBirth);
+        this.medicinalForm.get("age")?.setValue(data.age);
+        this.medicinalForm.get("civilStatus")?.setValue(data.civilStatus);
+        this.medicinalForm.get("gender")?.setValue(data.gender);
+        this.medicinalForm.get("cns")?.setValue(data.cns);
+        this.medicinalForm.get("provenance")?.setValue(data.provenance);
+        this.medicinalForm.get("motherName")?.setValue(data.motherName);
+        this.medicinalForm.get("phoneSecondary")?.setValue(data.phoneSecondary);
+        this.medicinalForm.get("phone")?.setValue(data.phone);
+        this.medicinalForm.get("professional")?.setValue(data.professional);
+        this.medicinalForm.get("postalCode")?.setValue(data.postalCode);
+        this.medicinalForm.get("addressName")?.setValue(data.addressName);
+        this.medicinalForm.get("addressNeighborhood")?.setValue(data.addressNeighborhood);
+        this.medicinalForm.get("addressNumber")?.setValue(data.addressNumber);
+        this.medicinalForm.get("addressSupplement")?.setValue(data.addressSupplement);
+        this.medicinalForm.get("addressState")?.setValue(data.addressState);
+        this.medicinalForm.get("addressCity")?.setValue(data.addressCity);
+        this.medicinalForm.get("addressCountry")?.setValue(data.addressCountry);
+        this.medicinalForm.get("symptoms")?.setValue(data.symptoms);
+        this.medicinalForm.get("complaints")?.setValue(data.complaints);
+      });
+    }
   }
 
   getAddressInfo(postalCode:string){
@@ -188,10 +220,16 @@ export class MedicinalRecordsCreateComponent implements OnInit {
     }
     return ""
   }
-
-  onSubmit(){
-      console.log(this.medicinalForm.value);
-      console.log(this.medicinalForm.valid);
+  /**
+   * Write code on Method
+   *
+   * @return response()
+   */
+  onSubmit() {
+    if(this.id) {
+      this.medicinalRecordService.update(this.id, this.medicinalForm.value).subscribe((res: any) => {
+        this.router.navigateByUrl('/dashboard');
+      })
+    }
   }
-
 }
