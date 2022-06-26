@@ -3,13 +3,30 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 import {ReactiveFormsModule} from "@angular/forms";
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { NgxMaskModule, IConfig } from 'ngx-mask'
+import { NgxMaskModule, IConfig } from 'ngx-mask';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { MedicinalRecordsListComponent } from './components/medicinal-records/list/medicinal-records-list.component';
+import { ActionsComponent } from './components/actions/actions.component';
+import { StatisticsComponent } from './components/statistics/statistics.component';
+import { MedicinalRecordsCreateComponent } from './components/medicinal-records/create/medicinal-records-create.component'
+import {BearToken} from "./services/BearToken";
+import { ViewComponent } from './components/medicinal-records/view/view.component';
+import { EditComponent } from './components/medicinal-records/edit/edit.component';
+
+
+import { HeaderComponent } from './components/header/header.component';
+import { HomeComponent } from './components/home/home.component'
+
+import {LoggedLayoutComponent} from "./shared/logged-layout.component";
+import {NotLoggedLayoutComponent} from "./shared/not-logged-layout.component";
+import { FooterComponent } from './components/footer/footer.component';
+
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -18,8 +35,21 @@ const maskConfig: Partial<IConfig> = {
 @NgModule({
   declarations: [
     AppComponent,
+    HeaderComponent,
+    HomeComponent,
+    LoggedLayoutComponent,
+    NotLoggedLayoutComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    FooterComponent,
+    RegisterComponent,
+    DashboardComponent,
+    MedicinalRecordsListComponent,
+    ActionsComponent,
+    StatisticsComponent,
+    MedicinalRecordsCreateComponent,
+    ViewComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +59,9 @@ const maskConfig: Partial<IConfig> = {
     BrowserAnimationsModule,
     NgxMaskModule.forRoot(maskConfig),
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS,useClass:BearToken, multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

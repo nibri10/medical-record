@@ -1,0 +1,83 @@
+<div class="container">
+  <div class="card ">
+    <div class="card-header">
+      <div class="row">
+        <div class="col">
+          <h5 class="card-title">Detalhes</h5>
+        </div>
+        <div class="col" style="text-align:end">
+          <a href="#" class="btn btn-primary" [routerLink]="['/dashboard']">Voltar</a>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+
+      <div class="row">
+        <h4>Informações Pessoais</h4>
+      </div>
+      <div class="row">
+        <div class="col"><p class="item-table-title">Nome: <span class="item-table-value">{{record?.name}}</span></p></div>
+        <div class="col"><p class="item-table-title">Local de nascimento: <span class="item-table-value">{{record?.placeBirth}}</span></p></div>
+        <div class="col"><p class="item-table-title"> Data de Nascimento: <span class="item-table-value">{{record?.birthdate}}</span></p></div>
+      </div>
+
+      <div class="row">
+        <div class="col"><p class="item-table-title">Sexo: <span class="item-table-value">{{record?.gender}}</span></p></div>
+        <div class="col"> <p class="item-table-title">Idade: <span class="item-table-value">{{record?.age}}</span></p></div>
+        <div class="col"><p class="item-table-title">Status civil: <span class="item-table-value">{{record?.civilStatus}}</span></p></div>
+      </div>
+
+      <div class="row">
+        <h4>Informações de Contato</h4>
+      </div>
+      <div class="row">
+        <div class="col"><p class="item-table-title">Profissão: <span class="item-table-value">{{record?.professional}}</span></p> </div>
+        <div class="col"> <p class="item-table-title">Nome da mãe: <span class="item-table-value">{{record?.motherName}}</span></p> </div>
+       <div class="col"> <p class="item-table-title">Telefone: <span class="item-table-value">{{record?.phone}}</span></p> </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <p class="item-table-title">Telefone Secundario: <span class="item-table-value">{{record?.phoneSecondary}}</span></p>
+        </div>
+        <div class="col">
+          <p class="item-table-title"> Rua: <span class="item-table-value">{{record?.addressName}}</span></p>
+        </div>
+        <div class="col">
+          <p class="item-table-title">Bairro: <span class="item-table-value">{{record?.addressNeighborhood}}</span></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <p class="item-table-title">Número: <span class="item-table-value">{{record?.addressNumber}}</span></p>
+        </div>
+      </div>
+
+      <div class="row">
+      <h4>Informações de Endereço</h4>
+      </div>
+      <div class="row">
+        <div class="col">
+          <p class="item-table-title">Complemento: <span class="item-table-value">{{record?.addressSupplement}}</span></p>
+        </div>
+        <div class="col">
+          <p class="item-table-title">Cidade: <span class="item-table-value">{{record?.addressCity}}</span></p>
+        </div>
+        <div class="col">
+          <p class="item-table-title">Estado: <span class="item-table-value">{{record?.addressState}}</span></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <p class="item-table-title">CNS: <span class="item-table-value">{{record?.cns}}</span></p>
+        </div>
+        <div class="col">
+          <p class="item-table-title">Sintomas: <span class="item-table-value">{{record?.symptoms}}</span></p>
+        </div>
+        <div class="col">
+          <p class="item-table-title">Complicações: <span class="item-table-value">{{record?.complaints}}</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

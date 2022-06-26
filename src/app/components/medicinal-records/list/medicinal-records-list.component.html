@@ -1,0 +1,54 @@
+<div class="row justify-content-center mt-5 ms-5 me-5 mb-5">
+
+    <div class="card">
+      <div class="card-body">
+          <table class="table table-striped table-hover">
+            <thead>
+            <tr>
+              <th scope="col">Paciente</th>
+              <th scope="col">informações pessoais</th>
+              <th scope="col">Sintomas</th>
+              <th scope="col">Ações</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let record of records">
+              <th>
+                <p class="item-table-title">Nome: <span class="item-table-value">{{record.name}}</span></p>
+                <p class="item-table-title">Local de nascimento <span class="item-table-value">{{record.placeBirth}}</span></p>
+                <p class="item-table-title"> Data de Nascimento <span class="item-table-value">{{record.birthdate}}</span></p>
+                <p class="item-table-title">Sexo <span class="item-table-value">{{getGender(record)}}</span></p>
+                <p class="item-table-title">Idade <span class="item-table-value">{{record.age}}</span></p>
+              </th>
+              <td>
+                <p class="item-table-title">Status civil <span class="item-table-value">{{getCivilStatus(record)}}</span></p>
+                <p class="item-table-title">Profissão <span class="item-table-value">{{record.professional}}</span></p>
+                <p class="item-table-title">Nome da mãe: <span class="item-table-value">{{record.motherName}}</span></p>
+                <p class="item-table-title">Telefone <span class="item-table-value">{{record.phone}}</span></p>
+                <p class="item-table-title">Telefone Secundario <span class="item-table-value">{{record.phoneSecondary}}</span></p>
+
+              </td>
+              <td>
+                <p class="item-table-title">CNS <span class="item-table-value">{{record.cns}}</span></p>
+                <p class="item-table-title">Sintomas <span class="item-table-value">{{record.symptoms}}</span></p>
+                <p class="item-table-title">Complicações <span class="item-table-value">{{record.complaints}}</span></p>
+              </td>
+              <td>
+                <div class="row">
+                  <div class="col">
+                    <a   href="#" [routerLink]="['/medicinal-record/', record.id, 'view']" class="btn btn-info">Ver</a>
+                  </div>
+                  <div class="col">
+                    <a  class="btn btn-primary"  href="#" [routerLink]="['/medicinal-record/', record.id, 'edit']">Editar</a>
+                  </div>
+                  <div class="col">
+                    <button type="button" (click)="delete(record)" class="btn btn-danger"  href="#" >Remover</button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+  </div>
+</div>

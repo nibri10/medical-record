@@ -1,0 +1,21 @@
+
+<div class="login-page">
+  <div class="form">
+    <form class="register-form">
+      <input type="text" placeholder="name"/>
+      <input type="password" placeholder="password"/>
+      <input type="text" placeholder="email address"/>
+      <button>create</button>
+      <p class="message">Already registered? <a href="#">Sign In</a></p>
+    </form>
+    <form class="login-form"  [formGroup]="userForm" novalidate (ngSubmit)="onSubmit()">
+      <input type="text" placeholder="username" formControlName="username"/>
+      <input type="password" placeholder="password"  formControlName="password"/>
+      <button  type="submit">login</button>
+      <p class="message">Not registered?  <a routerLink="/auth/register">Create an account</a></p>
+    </form>
+  </div>
+</div>
+<div class="row" style="margin-top:15rem">
+  <app-footer></app-footer>
+</div>

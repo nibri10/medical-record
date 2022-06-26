@@ -1,0 +1,54 @@
+<div class="container">
+  <form [formGroup]="userForm"  novalidate (ngSubmit)="onSubmit()" class="justify-content-center d-flex ">
+  <div class="card mt-5 justify-content-center" style="max-width: 600px; width: 600px">
+    <div class="card-body">
+      <div class="mb-3 mt-3">
+        <h4>Register Now</h4>
+      </div>
+
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input id="name" formControlName="name" class="form-control">
+        <div class="invalid-feedback" *ngIf="userForm.get('name')?.invalid" [ngStyle]="{'display':userForm.get('name')?.invalid && userForm.get('name')?.touched ? 'block' : 'none'}">
+          {{getErrorMessageName()}}
+        </div>
+      </div>
+
+
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input  id="email" formControlName="email" class="form-control">
+        <div class="invalid-feedback" *ngIf="userForm.get('email')?.invalid" [ngStyle]="{'display':userForm.get('email')?.invalid && userForm.get('email')?.touched ? 'block' : 'none'}">
+          {{getErrorMessageMail()}}
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input  id="username" formControlName="username" class="form-control">
+        <div class="invalid-feedback" *ngIf="userForm.get('username')?.invalid" [ngStyle]="{'display':userForm.get('username')?.invalid && userForm.get('username')?.touched ? 'block' : 'none'}">
+          {{getErrorUsername()}}
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input  id="password" formControlName="password" class="form-control">
+        <div class="invalid-feedback" *ngIf="userForm.get('password')?.invalid" [ngStyle]="{'display':userForm.get('password')?.invalid && userForm.get('password')?.touched ? 'block' : 'none'}">
+          {{getErrorPassword()}}
+        </div>
+      </div>
+
+      <div class="mb-3 d-flex justify-content-center ">
+            <button type="submit" class="btn btn-primary" [disabled]="!userForm.valid">REGISTAR</button>
+      </div>
+
+    </div>
+
+  </div>
+  </form>
+</div>
+
+<div class="row" style="margin-top:15rem">
+  <app-footer></app-footer>
+</div>

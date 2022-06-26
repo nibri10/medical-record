@@ -1,0 +1,77 @@
+.card__clock{
+  background: #fff5f8;
+  border-radius: 0.475rem;
+  font-family: "Poppins", serif;
+  font-size: 14px;
+  font-weight: 400;
+
+  &-card__title{
+    padding: 0 2.25rem;
+    font-weight: bold;
+    font-family: "Poppins", serif;
+    color: #f1416c;
+  }
+
+  &-card__clock{
+    padding: 0 2.50rem;
+    color: #a1a5b7;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+  }
+}
+.card__resolved{
+  background: #e8fff3;
+  font-family: "Poppins", serif;
+  border-radius: 0.475rem;
+  font-size: 14px;
+  font-weight: 400;
+
+  &-card__title{
+    padding: 0 2.25rem;
+    font-weight: bold;
+    color: #50cd89;
+  }
+
+  &-card__subtitle{
+    padding: 0 2.50rem;
+    color: #a1a5b7;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+  }
+}
+
+.card__call{
+  background: #f1faff;
+  font-family: "Poppins", serif;
+  font-size: 14px;
+  border-radius: 0.475rem;
+  font-weight: 400;
+
+  &-card__title{
+    padding: 0 2.25rem;
+    font-weight: bold;
+    color: #009EF7;
+  }
+
+  &-card__subtitle{
+    padding: 0 2.50rem;
+    color: #a1a5b7;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+  }
+
+}
+
+.statistics{
+ background: #ffffff;
+  &:after{
+    box-sizing: border-box;
+  }
+  &:before{
+    box-sizing: border-box;
+  }
+  border-radius: 0.625rem;
+}

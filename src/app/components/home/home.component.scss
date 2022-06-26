@@ -1,0 +1,124 @@
+.position {
+  display: flex;
+  flex-flow: row wrap;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 0.3em;
+}
+
+
+@media all and (max-width: 800px) {
+  .position {
+    justify-content: flex-start;
+  }
+}
+
+.background-box {
+  display: flex;
+  border-radius: 6px;
+  //justify-content: space-between;
+  padding: 15px;
+}
+
+.icon-dashboard {
+  display: flex;
+  justify-content: center;
+  padding-top: 12px;
+}
+
+.icon-dashboard mat-icon {
+  font-size: 35px;
+}
+
+.box-dashboard {
+  padding: 5px 8px 5px 10px;
+  display: flex;
+}
+
+.column-box-dashboard {
+  padding: 0px 25px;
+  margin-top: 5px;
+  display: flex;
+  font-size: 15.5px;
+  justify-content: flex-end;
+  color: #3f4254!important;
+  white-space: nowrap;
+}
+
+.sub-title-box {
+  padding: 0px 10px 5px 24px;
+  margin-top: 1px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #a1a5b7!important;
+}
+
+.value-box {
+  margin: 15px 5px 5px 22px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.toggle-btn>.inner-circle {
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 50%;
+}
+
+.toggle-btn.active {
+  background: #8ce196;
+}
+
+.toggle-btn.active>.inner-circle {
+  margin-left: 20px;
+}
+
+
+.position:nth-child(1) .background-box {
+  background: #fff8dd!important;
+}
+
+.position:nth-child(1) .icon-dashboard mat-icon {
+  color: #ffc700!important;
+}
+
+.position:nth-child(1) .value-box {
+  color: #ffc700!important;
+}
+
+.position:nth-child(2) .background-box {
+  background: #e8fff3!important;
+}
+
+.position:nth-child(2) .icon-dashboard mat-icon {
+  color: #50cd89!important;
+}
+
+.position:nth-child(2) .value-box {
+  color: #50cd89!important;
+}
+
+.position:nth-child(3) .background-box {
+  background: #fff5f8!important;
+}
+
+.position:nth-child(3) .icon-dashboard mat-icon {
+  color: #f1416c!important;
+}
+
+.position:nth-child(3) .value-box {
+  color: #f1416c!important;
+}
+
+.position:nth-child(4) .background-box {
+  background: #f8f5ff!important;
+}
+
+.position:nth-child(4) .icon-dashboard mat-icon {
+  color: #7239ea!important;
+}
+
+.position:nth-child(4) .value-box {
+  color: #7239ea!important;
+}
