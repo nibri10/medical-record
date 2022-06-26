@@ -37,7 +37,6 @@ export class AuthService{
   logout() {
     // remove user from local storage to log user out
     localStorage.removeItem('currentUser');
-    // this.currentUserSubject.next("");
   }
 
   register(email: string, name: string, username: string, password: string) {

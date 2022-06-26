@@ -20,6 +20,14 @@ import { ViewComponent } from './components/medicinal-records/view/view.componen
 import { EditComponent } from './components/medicinal-records/edit/edit.component';
 
 
+import { HeaderComponent } from './components/header/header.component';
+import { HomeComponent } from './components/home/home.component'
+
+import {LoggedLayoutComponent} from "./shared/logged-layout.component";
+import {NotLoggedLayoutComponent} from "./shared/not-logged-layout.component";
+import { FooterComponent } from './components/footer/footer.component';
+
+
 const maskConfig: Partial<IConfig> = {
   validation: false,
 };
@@ -27,7 +35,13 @@ const maskConfig: Partial<IConfig> = {
 @NgModule({
   declarations: [
     AppComponent,
+    HeaderComponent,
+    HomeComponent,
+    LoggedLayoutComponent,
+    NotLoggedLayoutComponent,
     LoginComponent,
+    RegisterComponent,
+    FooterComponent,
     RegisterComponent,
     DashboardComponent,
     MedicinalRecordsListComponent,

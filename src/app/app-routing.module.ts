@@ -7,6 +7,9 @@ import {MedicinalRecordsCreateComponent} from "./components/medicinal-records/cr
 import {AuthGuard} from "./services/AuthGuard";
 import {ViewComponent} from "./components/medicinal-records/view/view.component";
 import {EditComponent} from "./components/medicinal-records/edit/edit.component";
+import {HomeComponent} from "./components/home/home.component";
+import {NotLoggedLayoutComponent} from "./shared/not-logged-layout.component";
+
 
 const routes: Routes = [
   {path:"auth/login", component:LoginComponent},
@@ -14,7 +17,27 @@ const routes: Routes = [
   {path:"dashboard", component:DashboardComponent, canActivate: [AuthGuard]},
   {path:"medicinal-record/create", component:MedicinalRecordsCreateComponent, canActivate: [AuthGuard]},
   {path: 'medicinal-record/:Id/view', component: ViewComponent, canActivate: [AuthGuard] },
-  {path: 'medicinal-record/:Id/edit', component: EditComponent, canActivate: [AuthGuard]}
+  {path: 'medicinal-record/:Id/edit', component: EditComponent, canActivate: [AuthGuard]},
+  {
+    path: "",
+    component: NotLoggedLayoutComponent,
+    children: [
+      {
+        path: "",
+        component: HomeComponent
+
+      },
+      {
+        path: "auth/login",
+        component: LoginComponent
+      },
+
+      { path:"auth/register",
+        component:RegisterComponent
+      }
+
+    ]
+  }
 ];
 
 @NgModule({
