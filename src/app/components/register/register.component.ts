@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {PostalCodeService} from "../../services/postal-code.service";
-import Util from "../../services/Util";
-import {first} from "rxjs";
 import {AuthService} from "../../services/AuthService";
 import {ActivatedRoute, Router} from "@angular/router";
 
@@ -60,8 +57,9 @@ export class RegisterComponent implements OnInit {
     if (this.userForm.invalid) {
       return;
     }
-    this.authenticationService.register(this.userForm.get("email")?.value,this.userForm.get("name")?.value,this.userForm.get("username")?.value,this.userForm.get("password")?.value)
+    this.authenticationService.register(this.userForm.value)
       .subscribe((data) => {
+        console.log(data);
         this.router.navigateByUrl('/');
       });
   }

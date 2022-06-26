@@ -1,4 +1,6 @@
-<div class="container">
+<app-header></app-header>
+
+<div class="container mt-5">
   <form [formGroup]="userForm"  novalidate (ngSubmit)="onSubmit()" class="justify-content-center d-flex ">
   <div class="card mt-5 justify-content-center" style="max-width: 600px; width: 600px">
     <div class="card-body">
@@ -7,7 +9,7 @@
       </div>
 
       <div class="mb-3">
-        <label for="name" class="form-label">Name</label>
+        <label for="name" class="form-label">Nome</label>
         <input id="name" formControlName="name" class="form-control">
         <div class="invalid-feedback" *ngIf="userForm.get('name')?.invalid" [ngStyle]="{'display':userForm.get('name')?.invalid && userForm.get('name')?.touched ? 'block' : 'none'}">
           {{getErrorMessageName()}}
@@ -32,7 +34,7 @@
       </div>
 
       <div class="mb-3">
-        <label for="password" class="form-label">Password</label>
+        <label for="password" class="form-label">Senha</label>
         <input  id="password" formControlName="password" class="form-control">
         <div class="invalid-feedback" *ngIf="userForm.get('password')?.invalid" [ngStyle]="{'display':userForm.get('password')?.invalid && userForm.get('password')?.touched ? 'block' : 'none'}">
           {{getErrorPassword()}}

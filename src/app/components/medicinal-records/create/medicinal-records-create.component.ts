@@ -196,8 +196,14 @@ export class MedicinalRecordsCreateComponent implements OnInit {
   onSubmit(){
       console.log(this.medicinalForm.value);
       console.log(this.medicinalForm.valid);
-      this.medicinalRecordService.create(this.medicinalForm.value).subscribe((data) => {
-        this.router.navigateByUrl('/dashboard');
+      this.medicinalRecordService.create(this.medicinalForm.value).subscribe( {
+        next: () => {
+          window.alert("Registro Cadastrado com Sucesso!")
+          this.router.navigateByUrl('/dashboard').then(() => {
+            window.location.reload();
+          });
+        }
+
       });
   }
 

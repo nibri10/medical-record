@@ -1,5 +1,3 @@
-import {Validators} from "@angular/forms";
-import Util from "../services/Util";
 
 export interface Register {
   personId :string,

@@ -16,7 +16,7 @@
               <th>
                 <p class="item-table-title">Nome: <span class="item-table-value">{{record.name}}</span></p>
                 <p class="item-table-title">Local de nascimento <span class="item-table-value">{{record.placeBirth}}</span></p>
-                <p class="item-table-title"> Data de Nascimento <span class="item-table-value">{{record.birthdate}}</span></p>
+                <p class="item-table-title"> Data de Nascimento <span class="item-table-value">{{record.birthdate | date:"dd/MM/YYY"}}</span></p>
                 <p class="item-table-title">Sexo <span class="item-table-value">{{getGender(record)}}</span></p>
                 <p class="item-table-title">Idade <span class="item-table-value">{{record.age}}</span></p>
               </th>
@@ -24,8 +24,8 @@
                 <p class="item-table-title">Status civil <span class="item-table-value">{{getCivilStatus(record)}}</span></p>
                 <p class="item-table-title">Profissão <span class="item-table-value">{{record.professional}}</span></p>
                 <p class="item-table-title">Nome da mãe: <span class="item-table-value">{{record.motherName}}</span></p>
-                <p class="item-table-title">Telefone <span class="item-table-value">{{record.phone}}</span></p>
-                <p class="item-table-title">Telefone Secundario <span class="item-table-value">{{record.phoneSecondary}}</span></p>
+                <p class="item-table-title">Telefone <span class="item-table-value" *ngIf="record.phone">{{record.phone | mask:'(00) 0 0000-0000'}}</span></p>
+                <p class="item-table-title">Telefone Secundario <span class="item-table-value" *ngIf="record.phoneSecondary" >{{record.phoneSecondary | mask:'(00) 0 0000-0000'}}</span></p>
 
               </td>
               <td>

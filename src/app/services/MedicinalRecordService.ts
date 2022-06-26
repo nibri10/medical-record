@@ -1,8 +1,9 @@
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {MedicinalRecord} from "../models/MedicinalRecord";
 import {environment} from "../../environments/environment.prod";
 import {Injectable} from "@angular/core";
 import {catchError, Observable, retry, throwError} from "rxjs";
+import {AuthService} from "./AuthService";
 
 export interface IResponse{
   success:boolean,
@@ -23,7 +24,7 @@ export class MedicinalRecordService {
   }
 
   getAll(){
-    return this.http.get<IResponse>(`${environment.api}medicinalRecord/all`);
+    return this.http.get<IResponse>(`${environment.api}medicinalRecord/all`).pipe(retry(1), catchError(this.errorHandler));
   }
 
   find(id:number): Observable<any> {
@@ -48,7 +49,12 @@ export class MedicinalRecordService {
   }
 
   errorHandler(error:any) {
-    let errorMessage = '';
+    let errorMessage = ''
+    if(error.error.status === 401){
+      localStorage.removeItem('currentUser');
+      errorMessage = "NOT AUTHORIZED"
+      return throwError(errorMessage);
+    }
     if(error.error instanceof ErrorEvent) {
       errorMessage = error.error.message;
     } else {
