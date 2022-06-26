@@ -1,12 +1,18 @@
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Injectable} from "@angular/core";
-import {User} from "../models/User";
-import {BehaviorSubject, map, Observable} from "rxjs";
+import {User, UserRegister} from "../models/User";
+import {BehaviorSubject, catchError, map, Observable, retry, throwError} from "rxjs";
 import {environment} from "../../environments/environment.prod";
+import {MedicinalRecord} from "../models/MedicinalRecord";
 
 @Injectable({providedIn:'root'})
 export class AuthService{
   private currentUserSubject: BehaviorSubject<User>;
+  httpOptions = {
+    headers: new HttpHeaders({
+      "Content-type":"application/json"
+    })
+  }
   public currentUser: Observable<User>;
   constructor(private http: HttpClient) {
 
@@ -36,10 +42,21 @@ export class AuthService{
 
   logout() {
     // remove user from local storage to log user out
-    localStorage.removeItem('currentUser');
+   return localStorage.removeItem('currentUser');
   }
 
-  register(email: string, name: string, username: string, password: string) {
-      return this.http.post<any>(environment.api+"auth/signup",{email,name,username,password});
+  register(user: UserRegister):Observable<any> {
+      return this.http.post<any>(environment.api+"auth/signup", JSON.stringify(user),this.httpOptions);
+  }
+
+  errorHandler(error:any) {
+    let errorMessage = ''
+
+    if(error.error instanceof ErrorEvent) {
+      errorMessage = error.error.message;
+    } else {
+      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    }
+    return throwError(errorMessage);
   }
 }

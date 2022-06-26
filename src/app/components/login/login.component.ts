@@ -36,12 +36,13 @@ export class LoginComponent implements OnInit {
   constructor(private authenticationService : AuthService,
               private route: ActivatedRoute,
                private router: Router,) {
-    if(this.authenticationService.currentUserValue){
-      this.router.navigate(["/dashboard"]);
-    }
+
   }
 
   ngOnInit(): void {
+    if(this.authenticationService.currentUserValue){
+      this.router.navigate(["/dashboard"]);
+    }
   }
 
   onSubmit() {
@@ -53,9 +54,13 @@ export class LoginComponent implements OnInit {
       .subscribe({
         next:()=>{
           const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-          this.router.navigate([returnUrl]);
+          this.router.navigate([returnUrl])
+            .then(() => {
+              window.location.reload();
+            });
         },
         error:error => {
+          window.alert("email / senha invalidos");
           this.error = error;
         }
       })
