@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  api:"http://localhost:8080/api/"
+  api:"https://app-back-end-medicinal-records.herokuapp.com/api/"
 };
