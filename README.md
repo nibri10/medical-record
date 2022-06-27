@@ -26,4 +26,6 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 7. [x] Criar paginas utilizando o orientada à componentes 
 8. [x] Trabalhar com branches master e development e branches filhas  
 9. [x] Prototipo [Medicinal Records Figma](https://www.figma.com/file/0ax4VOHhZCJMETYlK9zju9/Projeto-Medicinal-Records-Prototipo-em-baixa-fidelidade?node-id=0%3A1)
+10. [x] Aplicação disponível [Medicinal Records Heroku](https://medicinal-records.herokuapp.com)
+11. [x] Documentação da API disponível [Medicinal Records Heroku](https://app-back-end-medicinal-records.herokuapp.com/swagger-ui.html#/)
 
