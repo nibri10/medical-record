@@ -25,17 +25,7 @@ const routes: Routes = [
       {
         path: "",
         component: HomeComponent
-
       },
-      {
-        path: "auth/login",
-        component: LoginComponent
-      },
-
-      { path:"auth/register",
-        component:RegisterComponent
-      }
-
     ]
   }
 ];

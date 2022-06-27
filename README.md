@@ -6,22 +6,24 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## API 
+#### A api utilizada no projeto feita em **spring boot** com **autenticação jwt**  está disponivel nesse link [Events Project API](https://github.com/nibri10/EventsProject-Api) de minha autoria.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+# Medicinal Records
 
-## Running end-to-end tests
+ Nesse projeto foi utilizado o que foi aprendido no decorrer do curso como:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+1. [x] Utilização de pipes para formatação de dados.
+2. [x] Passagem de dados entre componentes filhos.
+3. [x] Utilização de Observes para função assincronas.
+4. [x] Arquitetura orientada a serviços.
+5. [x] Desabilitar botão caso dados estejam invalidados
+6. [x] Navegação entre paginas 
+7. [x] Criar paginas utilizando o orientada à componentes 
+8. [x] Trabalhar com branches master e development e branches filhas  
+9. [x] Prototipo [Medicinal Records Figma](https://www.figma.com/file/0ax4VOHhZCJMETYlK9zju9/Projeto-Medicinal-Records-Prototipo-em-baixa-fidelidade?node-id=0%3A1)
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
